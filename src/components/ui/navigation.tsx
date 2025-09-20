@@ -22,18 +22,6 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link 
-            to="/" 
-            className="flex items-center space-x-2 font-bold text-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md p-2"
-            aria-label="NewroView - Home"
-          >
-            <Accessibility className="h-8 w-8 text-primary" aria-hidden="true" />
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              NewroView
-            </span>
-          </Link>
-
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
