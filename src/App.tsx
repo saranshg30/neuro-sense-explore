@@ -10,6 +10,9 @@ import Maps from "./pages/Maps";
 import Tactile from "./pages/Tactile";
 import Library from "./pages/Library";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
+import BrainModel from "./pages/BrainModel";
+import PodcastScripts from "./pages/PodcastScripts";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +28,10 @@ const App = () => (
             <Route path="/lessons" element={<Lessons />} />
             <Route path="/maps" element={<Maps />} />
             <Route path="/tactile" element={<Tactile />} />
+            <Route path="/models/brain" element={<BrainModel />} />
+            <Route path="/podcast-scripts" element={<PodcastScripts />} />
             <Route path="/library" element={<Library />} />
+            <Route path="/about" element={<About />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

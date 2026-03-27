@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Boxes, Download, FileText, Headphones, Printer } from 'lucide-react';
 import { AudioDescription } from '@/components/AudioDescription';
 import { AccessibleButton } from '@/components/AccessibleButton';
+import { Link } from 'react-router-dom';
 
 const Tactile = () => {
   const [selectedCategory, setSelectedCategory] = useState("brain-anatomy");
@@ -44,10 +45,11 @@ const Tactile = () => {
         title: "Complete Human Brain",
         description: "Full brain model with removable sections for detailed exploration",
         files: ["brain_complete.stl", "brain_sections.obj"],
-        printTime: "8-12 hours",
+        printTime: "15-20 hours",
         difficulty: "Intermediate",
         audioGuide: "45 minutes",
-        tags: ["Cerebrum", "Cerebellum", "Brainstem"]
+        tags: ["Cerebrum", "Cerebellum", "Brainstem"],
+        link: "/models/brain"
       },
       {
         id: 2,
@@ -290,16 +292,30 @@ const Tactile = () => {
                             </div>
                           </div>
 
-                          {/* Download Button */}
-                          <AccessibleButton 
-                            className="w-full" 
-                            aria-label={`Download ${model.title} files and audio guide`}
-                            hapticFeedback="medium"
-                            announcement={`Downloading ${model.title} package`}
-                          >
-                            <Download className="h-4 w-4" aria-hidden="true" />
-                            Download Package
-                          </AccessibleButton>
+                          {/* Action Button */}
+                          {model.link ? (
+                            <AccessibleButton 
+                              asChild
+                              className="w-full" 
+                              aria-label={`View detailed instructions for ${model.title}`}
+                              hapticFeedback="light"
+                              announcement={`Navigating to ${model.title} details`}
+                            >
+                              <Link to={model.link}>
+                                View Details
+                              </Link>
+                            </AccessibleButton>
+                          ) : (
+                            <AccessibleButton 
+                              className="w-full" 
+                              aria-label={`Download ${model.title} files and audio guide`}
+                              hapticFeedback="medium"
+                              announcement={`Downloading ${model.title} package`}
+                            >
+                              <Download className="h-4 w-4" aria-hidden="true" />
+                              Download Package
+                            </AccessibleButton>
+                          )}
                         </div>
                       </CardContent>
                     </Card>

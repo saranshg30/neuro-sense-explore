@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Home, BookOpen, Map, Layers, Volume2, Contrast, BrainCircuit } from 'lucide-react';
+import { Home, BookOpen, Map, Layers, Volume2, Contrast, BrainCircuit, Users, Mic } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAccessibilityContext } from '@/components/AccessibilityProvider';
 
 const navItems = [
   { href: '/', label: 'Home', icon: Home, description: 'Homepage' },
   { href: '/lessons', label: 'Audio Lessons', icon: Volume2, description: 'Podcast-style neuroscience modules' },
+  { href: '/podcast-scripts', label: 'Podcast Scripts', icon: Mic, description: 'Verbatim text for our upcoming podcast episodes' },
   { href: '/maps', label: 'Sonified Maps', icon: Map, description: 'Interactive brain diagrams with sound' },
   { href: '/tactile', label: 'Tactile Hub', icon: Layers, description: '3D printable neuroscience models' },
   { href: '/library', label: 'Library', icon: BookOpen, description: 'Complete resource collection' },
+  { href: '/about', label: 'About', icon: Users, description: 'Aims, objectives, and team' },
 ];
 
 const Navigation = () => {
